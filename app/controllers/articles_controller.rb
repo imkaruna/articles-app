@@ -4,7 +4,7 @@ class ArticlesController < ApplicationController
   layout "articles"
 
   def index
-    @hello_world_props = { name: "Stranger" }
-    render layout: "articles"
+    @articles = Article.all
+    render json: @articles
   end
 end
