@@ -5,6 +5,7 @@ class ArticlesController < ApplicationController
 
   def index
     @articles = Article.all
-    render json: @articles
+    @component = {:articles => @articles}
+
   end
 end
