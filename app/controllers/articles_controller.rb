@@ -5,6 +5,6 @@ class ArticlesController < ApplicationController
 
   def index
     @articles = Article.all
-    render json: @articles
+    @component = {:articles => @articles.to_json(except: [:author_id], include: [{ author: {only: [:id, :name] }},  tags: {only: [:id, :name] }] )}
   end
 end
